@@ -1,0 +1,18 @@
+version: '3'
+services:
+  minecraft:
+    container_name: mc
+    build:
+      context: .
+      args:
+        TAG: latest
+    image: minecraft-server
+    volumes:
+       - data:/minecraft/game
+    ports:
+      - "25565:25565"
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+volumes:
+  data: {}
